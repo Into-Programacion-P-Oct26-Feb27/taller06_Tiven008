@@ -20,7 +20,7 @@ public class Problema01 {
     public static void main(String[] args) {
         // TODO code application logic here
         
-         Scanner entrada = new Scanner(System.in);
+        Scanner entrada = new Scanner(System.in);
         entrada.useLocale(Locale.US);
         int opcion;
         double numero1;
@@ -33,16 +33,16 @@ public class Problema01 {
         operacion = "";
         calculado = false;
 
-        System.out.println("Ingrese el primer número");
+        System.out.println("Ingrese el primer numero");
         numero1 = entrada.nextDouble();
-        System.out.println("Ingrese el segundo número");
+        System.out.println("Ingrese el segundo numero");
         numero2 = entrada.nextDouble();
-        System.out.println("Ingrese la operación.\n"
+        System.out.println("Ingrese la operacion\n"
                 + "1 suma\n"
                 + "2 resta\n"
-                + "3 multiplicación\n"
-                + "4 división\n"
-                + "5 módulo\n"
+                + "3 multiplicacion\n"
+                + "4 division\n"
+                + "5 modulo\n"
                 + "6 potencia");
         opcion = entrada.nextInt();
 
@@ -61,14 +61,14 @@ public class Problema01 {
                     break;
 
                 case 3:
-                    operacion = "Multiplicación";
+                    operacion = "Multiplicacion";
                     resultado = numero1 * numero2;
                     calculado = true;
                     break;
 
                 case 4:
                     if (numero2 != 0) {
-                        operacion = "División";
+                        operacion = "Division";
                         resultado = numero1 / numero2;
                         calculado = true;
                     } else {
@@ -78,11 +78,11 @@ public class Problema01 {
 
                 case 5:
                     if (numero2 != 0) {
-                        operacion = "Módulo";
+                        operacion = "Modulo";
                         resultado = numero1 % numero2;
                         calculado = true;
                     } else {
-                        System.out.println("No es posible calcular el módulo con cero");
+                        System.out.println("No es posible calcular el modulo con cero");
                     }
                     break;
 
@@ -93,21 +93,21 @@ public class Problema01 {
                     break;
 
                 default:
-                    System.out.println("La opción no es válida");
+                    System.out.println("La opcion no es valida");
                     break;
             }
         } else {
-            System.out.println("No es posible realizar la operación: "
-                    + "el primer número debe ser mayor que el segundo");
+            System.out.println("No es posible realizar la operacion: "
+                    + "el primer numero debe ser mayor que el segundo");
         }
 
         if (calculado) {
             System.out.printf("\nOPERACIONES ARITMÉTICAS\n"
-                    + "Primer número: %.2f\n"
-                    + "Segundo número: %.2f\n"
-                    + "Operación seleccionada: %s\n"
-                    + "\nResultado: %.2f\n"
-                    ,numero1 ,numero2 ,operacion ,resultado);
+                            + "Primer número: %.2f\n"
+                            + "Segundo número: %.2f\n"
+                            + "Operación seleccionada: %s\n"
+                            + "\nResultado: %.2f\n"
+                            ,numero1 ,numero2 ,operacion ,resultado);
 
         }
     }
