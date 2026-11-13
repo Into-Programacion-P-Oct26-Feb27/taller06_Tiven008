@@ -26,7 +26,7 @@ public class Problema02 {
         String propietario;
         String tipo;   
         String descripcion;
-        double avaluo;
+        double avaluo; //valor monetario del carro
         double recargo;
         double total;
         double porcentaje;
@@ -106,3 +106,4 @@ public class Problema02 {
         }
     }
 }
+// avaluo es el valor que el usuario le da al carro
