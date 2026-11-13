@@ -12,6 +12,9 @@ import java.util.Scanner;
  *
  * @author tiven
  */
+import java.util.Locale;
+import java.util.Scanner;
+
 public class Problema01 {
 
     /**
@@ -19,7 +22,7 @@ public class Problema01 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
+
         Scanner entrada = new Scanner(System.in);
         entrada.useLocale(Locale.US);
         int opcion;
@@ -47,68 +50,64 @@ public class Problema01 {
         opcion = entrada.nextInt();
 
         if (numero1 > numero2) {
-            switch (opcion) {
-                case 1:
-                    operacion = "Suma";
-                    resultado = numero1 + numero2;
-                    calculado = true;
-                    break;
-
-                case 2:
+            if (opcion == 1) {
+                operacion = "Suma";
+                resultado = numero1 + numero2;
+                calculado = true;
+            } else {
+                if (opcion == 2) {
                     operacion = "Resta";
                     resultado = numero1 - numero2;
                     calculado = true;
-                    break;
-
-                case 3:
-                    operacion = "Multiplicacion";
-                    resultado = numero1 * numero2;
-                    calculado = true;
-                    break;
-
-                case 4:
-                    if (numero2 != 0) {
-                        operacion = "Division";
-                        resultado = numero1 / numero2;
+                } else {
+                    if (opcion == 3) {
+                        operacion = "Multiplicacion";
+                        resultado = numero1 * numero2;
                         calculado = true;
                     } else {
-                        System.out.println("No es posible dividir para cero");
+                        if (opcion == 4) {
+                            if (numero2 != 0) {
+                                operacion = "Division";
+                                resultado = numero1 / numero2;
+                                calculado = true;
+                            } else {
+                                System.out.println("No es posible dividir para cero");
+                            }
+                        } else {
+                            if (opcion == 5) {
+                                if (numero2 != 0) {
+                                    operacion = "Modulo";
+                                    resultado = numero1 % numero2;
+                                    calculado = true;
+                                } else {
+                                    System.out.println("No es posible calcular el modulo con cero");
+                                }
+                            } else {
+                                if (opcion == 6) {
+                                    operacion = "Potencia";
+                                    resultado = Math.pow(numero1, numero2);
+                                    calculado = true;
+                                } else {
+                                    System.out.println("La opcion no es valida");
+                                }
+                            }
+                        }
                     }
-                    break;
-
-                case 5:
-                    if (numero2 != 0) {
-                        operacion = "Modulo";
-                        resultado = numero1 % numero2;
-                        calculado = true;
-                    } else {
-                        System.out.println("No es posible calcular el modulo con cero");
-                    }
-                    break;
-
-                case 6:
-                    operacion = "Potencia";
-                    resultado = Math.pow(numero1, numero2);
-                    calculado = true;
-                    break;
-
-                default:
-                    System.out.println("La opcion no es valida");
-                    break;
+                }
             }
         } else {
+            System.out.println("Los numeros ingresados no son correctos");
             System.out.println("No es posible realizar la operacion: "
                     + "el primer numero debe ser mayor que el segundo");
         }
 
         if (calculado) {
-            System.out.printf("\nOPERACIONES ARITMÉTICAS\n"
-                            + "Primer número: %.2f\n"
-                            + "Segundo número: %.2f\n"
-                            + "Operación seleccionada: %s\n"
+            System.out.printf("\nOPERACIONES ARITMETICAS\n"
+                            + "Primer numero: %.2f\n"
+                            + "Segundo numero: %.2f\n"
+                            + "Operacion seleccionada: %s\n"
                             + "\nResultado: %.2f\n"
-                            ,numero1 ,numero2 ,operacion ,resultado);
-
+                            , numero1, numero2, operacion, resultado);
         }
     }
 }
