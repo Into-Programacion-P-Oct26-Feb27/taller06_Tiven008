@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author tiven
+ * @author tiven 
  */
 import java.util.Locale;
 import java.util.Scanner;
