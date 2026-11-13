@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package problema02;
 
 
@@ -12,7 +8,7 @@ import java.util.Scanner;
  *
  * @author tiven
  */
-public class Problema02 {
+public class Problema02{
 
     /**
      * @param args the command line arguments
@@ -47,11 +43,13 @@ public class Problema02 {
                 + "1 Vehiculo liviano particular\n"
                 + "2 Vehiculo grande particular\n"
                 + "3 Taxi\n"
-                + "4 Bus\n");
+                + "4 Bus urbano\n");
                 tipo = entrada.nextLine();       
 
         System.out.println("Ingrese el Avaluo comercial del vehiculo");
         avaluo = entrada.nextDouble();
+
+        if (avaluo > 0) {
 
             switch(tipo){
                 case "1":
@@ -73,37 +71,40 @@ public class Problema02 {
                     break;
 
                 case "4":
-                    descripcion = "Bus";
+                    descripcion = "Bus urbano";
                     porcentaje = 0.05;
                     valorfijo = 2.20;
                     break;
                     
                 default:
-                tipoValido = false;
-                System.out.println("El tipo de vehiculo no es valido");
-                break;
+                    tipoValido = false;
+                    System.out.println("El tipo de vehiculo no es valido");
+                    break;
 
             }
             
             if (tipoValido) {
-            valorBase = avaluo * porcentaje / 100 + valorfijo;
+                valorBase = avaluo * porcentaje / 100 + valorfijo;
 
-            if ((tipo.equals("1") || tipo.equals("2")) && avaluo > 30000) {
-                recargo = 1.50;
+                if ((tipo.equals("1") || tipo.equals("2")) && avaluo > 30000) {
+                    recargo = 1.50;
+                }
+
+                total = valorBase + recargo;
+            
+                System.out.printf("\nPeaje \"Buena Via\"\n"
+                +"Propietario: %s\n"
+                +"Tipo: %s\n"
+                +"    Avaluo: $%.2f\n"
+                +"    Valor base del peaje: $%.2f\n"
+                +"    Recargo: $%.2f\n"
+                +"\n    Total a cancelar: $%.2f\n"
+                , propietario, descripcion, avaluo, valorBase, recargo, total);
+
             }
 
-            total = valorBase + recargo;
-            
-            System.out.printf("\nPeaje \"Buena Via\"\n"
-            +"Propietario: %s\n"
-            +"Tipo: %s\n"
-            +"    Avaluo: $%.2f\n"
-            +"    Valor base del peaje: $%.2f\n"
-            +"    Recargo: $%.2f\n"
-            +"\n    Total a cancelar: $%.2f\n"
-            , propietario, descripcion, avaluo, valorBase, recargo, total);
-
+        } else {
+            System.out.println("Los numeros ingresados no son correctos");
         }
     }
 }
-// avaluo es el valor que el usuario le da al carro
